@@ -16,6 +16,9 @@ const connect = function () {
 
   
   conn.on('connect', () => {
+
+
+  /*  
   setInterval(() => {
     conn.write("Move: up");
   }, 50);
@@ -23,7 +26,8 @@ const connect = function () {
     conn.write("Move: right");
   }, 50);
   
-    
+    clearInterval;
+    */
   })
   
   conn.on('data',(data) => {
