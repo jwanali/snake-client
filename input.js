@@ -1,4 +1,4 @@
-const { MOVE_UP_KEY,MOVE_DOWN_KEY,MOVE_LEFT_KEY,MOVE_RIGHT_KEY,SAY_FUN_KEY,SAY_GO_KEY,SAY_HI_KEY,SAY_OH_NO_KEY,SAY_OOH_KEY } = require("./constants");
+const { MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, SAY_FUN_KEY, SAY_GO_KEY, SAY_HI_KEY, SAY_OH_NO_KEY, SAY_OOH_KEY } = require("./constants");
 let connection;
 const setupInput = function (conn) {
   connection = conn;
@@ -9,7 +9,7 @@ const setupInput = function (conn) {
 
 
   stdin.on("data", handleUserInput);
-  //console.log(stdin);
+  
 
   return stdin;
 };
@@ -25,25 +25,25 @@ const handleUserInput = function (data) {
     connection.write(`Move: ${MOVE_LEFT_KEY}`);
   } else if (data === 'd') {
     connection.write(`Move: ${MOVE_RIGHT_KEY}`);
-  }else switch (data) {
-    case 'h': connection.write(`Say: ${SAY_HI_KEY}`)
+  } else switch (data) {
+    case 'h': connection.write(`Say: ${SAY_HI_KEY}`);
 
       break;
-    case 'g': connection.write(`Say: ${SAY_GO_KEY}`)
+    case 'g': connection.write(`Say: ${SAY_GO_KEY}`);
 
       break;
-    case 'n': connection.write(`Say: ${SAY_OH_NO_KEY}`)
+    case 'n': connection.write(`Say: ${SAY_OH_NO_KEY}`);
 
       break;
     case 'o': connection.write(`Say: ${SAY_OOH_KEY}`);
 
 
       break;
-    case 'f': connection.write(`Say: ${SAY_FUN_KEY}`)
+    case 'f': connection.write(`Say: ${SAY_FUN_KEY}`);
 
       break;
 
-    default: connection.write(`Say: ${data}`);
+    default: connection.write(`Say: ${SAY_FUN_KEY}`);
       break;
   }
 
