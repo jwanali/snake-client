@@ -10,16 +10,10 @@ const setupInput = function (conn) {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-
-
   stdin.on("data", handleUserInput);
-  
-
   return stdin;
 };
 const handleUserInput = function (data) {
-
-  
   if (data === '\u0003') {// press ctrl + c to exit
     process.exit();
   } else if(constants.CONTROLS[data]) {
@@ -28,15 +22,9 @@ const handleUserInput = function (data) {
   } else if(constants.MESSAGES[data]) {
     connection.write(constants.MESSAGES[data]);// say message
   } else {
-    connection.write(constants.MESSAGES.unNone);// unone message
-    
+    connection.write(constants.MESSAGES.unNone);// unone message    
   }
- 
- 
-
 };
-
-
 
 module.exports = {
   setupInput
